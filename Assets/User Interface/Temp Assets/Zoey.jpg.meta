@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Zoey_0: -7200131727045159056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
