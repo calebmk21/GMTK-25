@@ -54,4 +54,13 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(newScene);
     }
+
+    public void playSleepMinigame(GameObject panel)
+    {
+        
+        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Sleep);
+        panelToggle(panel);
+        Debug.Log("Wakey Wakey");
+    }
+    
 }

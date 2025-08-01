@@ -1,17 +1,39 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class WakeupMechanics : MonoBehaviour
 {
     [SerializeField] private GameObject Z;
     [SerializeField] private int maxtoSpawn = 10;
 
+    void Awake()
+    {
+        GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
+    }
+    
+    void OnDestroy()
+    {
+        GameManager.OnMinigameSelect -= GameManagerOnOnMinigameSelect;
+    }
+
+    private void GameManagerOnOnMinigameSelect(GameManager.MinigameState minigame)
+    {
+        if (minigame == GameManager.MinigameState.Sleep)
+        {
+            StartCoroutine("Testing");
+            //StartCoroutine("Voices");
+        }
+    }
+
+
     void Start()
     {
-        StartCoroutine("Testing");
-        StartCoroutine("Voices");
+        // StartCoroutine("Testing");
+        // StartCoroutine("Voices");
     }
 
     IEnumerator Testing()
@@ -28,9 +50,21 @@ public class WakeupMechanics : MonoBehaviour
             //code for Boss scolding or whateva, replace with event
             Debug.Log("WAKE UP BIH");
         }
+        
         Debug.Log("End");
+        wakeupMinigameEnd();
     }
 
+
+    public void wakeupMinigameEnd()
+    {
+        StopCoroutine("Testing");
+        
+        //Destroy(Z);
+        
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
+    }
+    
     void InstantiateZ()
     {
         Instantiate(Z, new Vector3(Random.Range(-7f, 7f), Random.Range(-4f, 4f), 0), Quaternion.Euler(new Vector3(0, 0, Random.Range(-45f, 45f))));

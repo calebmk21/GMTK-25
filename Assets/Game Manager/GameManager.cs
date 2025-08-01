@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
     // Day number
     [SerializeField] int dayNumber;
     
+    // Action counter
+    [SerializeField] int actionsRemaining;
+
+    [SerializeField] public GameObject minigamePanel; 
+    
     // Route Points
     public int greedPoints;
     public int slothPoints;
@@ -41,14 +47,25 @@ public class GameManager : MonoBehaviour
     public GameState State;
     public RouteState Route;
     public MinigameState Minigame;
-    
+
+
+    public static event Action<GameState> OnGameStateChanged;
+    public static event Action<RouteState> OnRouteStateChanged;
+    public static event Action<MinigameState> OnMinigameSelect;
     
     void Awake()
     {
         Instance = this;
     }
 
+    void Start()
+    {
+        UpdateGameState(GameState.Morning);
+        Debug.Log("Actions Remaining: " + actionsRemaining);
+    }
+
     // Handles logic for which route you're changing to
+    // TODO
     public void RouteSelector(int previousRoute)
     {
         int[] routeArray = new int[7]
@@ -87,14 +104,14 @@ public class GameManager : MonoBehaviour
         int max = MaxValue(routeArray);
         bool dupe = MaxDuplicate(routeArray, max);
 
-        if (dupe )
+        if (dupe)
         {
             
         }
     }
     
     // Handles what happens when you change routes
-    // A route is changed if you 
+
     public void RouteChange(RouteState newRoute)
     {
         Route = newRoute;
@@ -120,26 +137,119 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(newRoute), newRoute, null);
         }
         
-        
+        OnRouteStateChanged?.Invoke(newRoute);
     }
 
     public void UpdateGameState(GameState newState)
     {
+        State = newState;
+        switch (newState)
+        {
+            case GameState.Morning:
+                // Actions resets only when morning is called
+                HandleMorning();
+                break;
+            case GameState.Workday:
+                HandleWorkday();
+                break;
+            case GameState.Minigame:
+                // Selecting a minigame decrements the action counter
+                HandleMinigame();
+                break;
+            case GameState.Ending:
+                // Selects and ending based on final route
+                HandleEnding(Route);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+        }
         
+        OnGameStateChanged?.Invoke(newState);
     }
     
+    // Game State Functions
 
-    public void EndGame()
+    public void HandleMorning()
     {
+        actionsRemaining = 3;
+        dayNumber++;
+    }
+
+    public void HandleWorkday()
+    {
+        Debug.Log("Number of Actions: " + actionsRemaining);
+        Debug.Log("Currently on Day: "+ dayNumber);
+        
+        if (dayNumber == maxWorkdays)
+        {
+            UpdateGameState(GameState.Ending);
+        }
+        else if (actionsRemaining == 0)
+        {
+            UpdateGameState(GameState.Morning);
+        }
+        else
+        {
+            minigamePanel.SetActive(true);
+        }
         
     }
-    
+
+    public void HandleMinigame()
+    {
+        actionsRemaining--;
+    }
+
+    public void HandleEnding(RouteState finalRoute)
+    {
+        switch (finalRoute)
+        {
+            case RouteState.Indecisive:
+                break;
+            case RouteState.Greed:
+                break;
+            case RouteState.Sloth:
+                break;
+            case RouteState.Pride:
+                break;
+            case RouteState.Wrath:
+                break;
+            case RouteState.Gluttony:
+                break;
+            case RouteState.Envy:
+                break;
+            case RouteState.Lust:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(finalRoute), finalRoute, null);
+        }
+    }
+
+    public void MinigameSelection(MinigameState minigame)
+    {
+        Minigame = minigame;
+        switch (minigame)
+        {
+            case MinigameState.Sleep:
+                slothPoints++;
+                Debug.Log("Sloth Points: " + slothPoints);
+                break;
+            case MinigameState.Spreadsheet:
+                greedPoints++;
+                Debug.Log("Greed Points: " + greedPoints);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(minigame), minigame, null);
+        }
+        
+        OnMinigameSelect?.Invoke(minigame);
+    }
     
     public enum GameState
     {
         Morning,
         Workday,
-        Transition,
+        Minigame,
         Ending
     }
 
