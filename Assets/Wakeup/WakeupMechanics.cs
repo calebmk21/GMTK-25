@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -59,8 +60,14 @@ public class WakeupMechanics : MonoBehaviour
     public void wakeupMinigameEnd()
     {
         StopCoroutine("Testing");
-        
-        //Destroy(Z);
+        var Clickables = GameObject.FindGameObjectsWithTag("ClickableZ");
+        foreach (var item in Clickables)
+        {
+            if (item.name == "Clickable(Clone)")
+            {
+                DestroyImmediate(item, true);
+            }
+        }
         
         GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
     }
