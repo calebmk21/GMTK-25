@@ -6,44 +6,33 @@ using UnityEngine.SceneManagement;
 public class WakeupMechanics : MonoBehaviour
 {
     [SerializeField] private GameObject Z;
-    [SerializeField] private int maxMinuteTens = 10;
-    [SerializeField] private int startingZs = 5;
-    public static int count = 0;
+    [SerializeField] private int maxtoSpawn = 10;
 
     void Start()
     {
         StartCoroutine("Testing");
+        StartCoroutine("Voices");
     }
 
-    void Update()
-    {
-        if (count == 0)
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
     IEnumerator Testing()
     {
-        //invoke function to get end stats/result of the zs
-        for(int i = 0; i < startingZs; ++i)
+        for(int i = 0; i < maxtoSpawn; ++i)
         {
             InstantiateZ();
+            yield return new WaitForSeconds(1);
         }
         yield return new WaitForSeconds(5);
-        for(int i = 0; i < maxMinuteTens - startingZs; ++i)
-        {
-            InstantiateZ();
-            yield return new WaitForSeconds(2);
-        }
-        yield return new WaitForSeconds(5);
-        Debug.Log(count);
-        SceneManager.LoadScene(0);
 
+        if(Move.countImp > 0)
+        {
+            //code for Boss scolding or whateva, replace with event
+            Debug.Log("WAKE UP BIH");
+        }
+        Debug.Log("End");
     }
 
     void InstantiateZ()
     {
         Instantiate(Z, new Vector3(Random.Range(-7f, 7f), Random.Range(-4f, 4f), 0), Quaternion.Euler(new Vector3(0, 0, Random.Range(-45f, 45f))));
-        ++count;
     }
 }
