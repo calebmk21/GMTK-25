@@ -48,10 +48,13 @@ public class GameManager : MonoBehaviour
     public RouteState Route;
     public MinigameState Minigame;
 
-
+    // Events
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<RouteState> OnRouteStateChanged;
     public static event Action<MinigameState> OnMinigameSelect;
+    public static event Action OnDay1;
+    public static event Action OnDay2;
+    public static event Action OnSnooze;
     
     void Awake()
     {
@@ -60,12 +63,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGameState(GameState.Morning);
-        Debug.Log("Actions Remaining: " + actionsRemaining);
+        UpdateGameState(GameState.Tutorial);
+        //Debug.Log("Actions Remaining: " + actionsRemaining);
     }
 
     // Handles logic for which route you're changing to
-    // TODO
     public void RouteSelector()
     {
         int[] routeArray = new int[7]
@@ -174,9 +176,9 @@ public class GameManager : MonoBehaviour
         bool dupe = MaxDuplicate(routeArray, max);
         int routeInt = RouteToInt(Route);
 
-        Debug.Log("Max Value in Array: " + max);
-        Debug.Log("Is the Max Value Duplicate? " + dupe);
-        Debug.Log("Route Int: " + routeInt);
+        //.Log("Max Value in Array: " + max);
+        //Debug.Log("Is the Max Value Duplicate? " + dupe);
+        //Debug.Log("Route Int: " + routeInt);
         
         RouteState newRoute = Route;
 
@@ -184,17 +186,17 @@ public class GameManager : MonoBehaviour
         // this case handles that first
         if (routeInt == 7)
         {
-            Debug.Log("Entered 1");
+            //Debug.Log("Entered 1");
             if (dupe)
             {
-                Debug.Log("Entered 1.1");
+                //Debug.Log("Entered 1.1");
                 newRoute = RouteState.Indecisive;
             }
             else
             {
-                Debug.Log("Entered 1.2");
+                //Debug.Log("Entered 1.2");
                 int ind = MaxElementIndex(routeArray);
-                Debug.Log("Index: " + ind);
+                //Debug.Log("Index: " + ind);
                 newRoute = IntToRoute(ind);
             }
         }
@@ -202,19 +204,19 @@ public class GameManager : MonoBehaviour
         // Ties in points go to the current route
         else if (dupe && routeArray[routeInt] == max)
         {
-            Debug.Log("Entered 2");
+            //Debug.Log("Entered 2");
             newRoute = Route;
         }
         
         // Unless you tied two new routes at the same time
         else if (dupe && routeArray[routeInt] != max)
         {
-            Debug.Log("Entered 3");
+            //Debug.Log("Entered 3");
             newRoute = RouteState.Indecisive;
         }
         else
         {
-            Debug.Log("Entered 4");
+            //Debug.Log("Entered 4");
             int ind = MaxElementIndex(routeArray);
             newRoute = IntToRoute(ind);
         }
@@ -231,6 +233,11 @@ public class GameManager : MonoBehaviour
         switch (newRoute)
         {
             case RouteState.Indecisive:
+                // Defaults to Greed on Day 1
+                if (dayNumber == 1)
+                {
+                    RouteChange(RouteState.Greed);
+                }
                 break;
             case RouteState.Greed:
                 break;
@@ -290,11 +297,35 @@ public class GameManager : MonoBehaviour
 
     public void HandleMorning()
     {
-        actionsRemaining = 3;
-        dayNumber++;
+        // Increments day counter
+        ++dayNumber;
+        
+        // Unique events for day 1 and day 2
+        // Day 1 only gets one action
+        if (dayNumber == 1)
+        {
+            OnDay1?.Invoke();
+            actionsRemaining = 1;
+        }
+        else if (dayNumber == 2)
+        {
+            OnDay2?.Invoke();
+            actionsRemaining = 3;
+        }
+        
+        // Begins ending if you reached the final day
+        else if (dayNumber == maxWorkdays)
+        {
+            UpdateGameState(GameState.Ending);
+        }
+        else
+        {
+            actionsRemaining = 3;
+        }
+        
+        
         RouteSelector();
-        // we should add more things to the morning besides it being a transition. 
-        // probably dialogue sequences
+
     }
 
     public void HandleWorkday()
@@ -352,6 +383,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // This should only be called if the player wishes to replay the tutorial
     public void HandleTutorial()
     {
         
@@ -369,6 +401,23 @@ public class GameManager : MonoBehaviour
             case MinigameState.Spreadsheet:
                 greedPoints++;
                 Debug.Log("Greed Points: " + greedPoints);
+                break;
+            case MinigameState.Email:
+                
+                // Point gain varies based on which route you are on; defaults to greed
+                // Stronger gains if you're already on the non-greed route
+                if (Route == RouteState.Envy)
+                {
+                    envyPoints += 2;
+                }
+                else if (Route == RouteState.Pride)
+                {
+                    pridePoints += 2;
+                }
+                else
+                {
+                    greedPoints++;
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(minigame), minigame, null);
@@ -390,7 +439,8 @@ public class GameManager : MonoBehaviour
     public enum MinigameState
     {
         Sleep,
-        Spreadsheet
+        Spreadsheet,
+        Email
     }
 
     public enum RouteState
@@ -403,6 +453,12 @@ public class GameManager : MonoBehaviour
         Gluttony,
         Envy,
         Lust
+    }
+    
+    // Tutorial Methods
+    public void SnoozeAlarm()
+    {
+        OnSnooze?.Invoke();
     }
     
 }

@@ -13,6 +13,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject pauseMenuPanel;
 
+    
+    
     public void quitGame()
     {
         Application.Quit();
@@ -70,7 +72,6 @@ public class Menu : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameManager.GameState.Minigame);
         panelToggle(panel);
     }
-    
     
     // Debug Functions
     public void SkipToMorning()
