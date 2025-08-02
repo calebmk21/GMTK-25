@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class WakeupMechanics : MonoBehaviour
 {
     [SerializeField] private GameObject Z;
-    [SerializeField] private int maxtoSpawn = 10;
+    [SerializeField] private int maxtoSpawn = 25;
 
     void Awake()
     {
@@ -39,6 +39,7 @@ public class WakeupMechanics : MonoBehaviour
 
     IEnumerator Testing()
     {
+        float startTime = Time.time;
         for(int i = 0; i < maxtoSpawn; ++i)
         {
             InstantiateZ();
@@ -57,8 +58,11 @@ public class WakeupMechanics : MonoBehaviour
             // Win
             GameManager.Instance.slothPoints += 2;
         }
+
+        float endTime = Time.time;
+        float elapsedTime = endTime - startTime;
         
-        Debug.Log("End");
+        Debug.Log("Time Elapsed: " + elapsedTime);
         wakeupMinigameEnd();
     }
 

@@ -276,6 +276,9 @@ public class GameManager : MonoBehaviour
                 // Selects and ending based on final route
                 HandleEnding(Route);
                 break;
+            case GameState.Tutorial:
+                HandleTutorial();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
@@ -323,7 +326,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    
     public void HandleEnding(RouteState finalRoute)
     {
         switch (finalRoute)
@@ -347,6 +350,11 @@ public class GameManager : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(finalRoute), finalRoute, null);
         }
+    }
+
+    public void HandleTutorial()
+    {
+        
     }
 
     public void MinigameSelection(MinigameState minigame)
@@ -375,7 +383,8 @@ public class GameManager : MonoBehaviour
         Workday,
         Minigame,
         Evening,
-        Ending
+        Ending,
+        Tutorial
     }
 
     public enum MinigameState
