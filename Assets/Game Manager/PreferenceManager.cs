@@ -22,7 +22,7 @@ public class PreferenceManager : MonoBehaviour
     public void SavePrefs()
     {
         // edit this once sliders are implemented
-        PlayerPrefs.SetInt(MasterVolumeKey, 10);
+        PlayerPrefs.SetFloat(MasterVolumeKey, 10);
     }
 
     public void LoadPrefs()

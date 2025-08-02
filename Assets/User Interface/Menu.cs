@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
+    public static bool isPaused = false;
+    
     [SerializeField] private GameObject systemSettings;
     [SerializeField] private GameObject mainMenuButtons;
     [SerializeField] private GameObject creditsPanel;
@@ -28,7 +30,8 @@ public class Menu : MonoBehaviour
 
         // Maybe need to include other stuff to be found in the GameManager later 
         // but also maybe this suffices 
-
+        
+        isPaused = true;
         Debug.Log("Pause");
     }
     
@@ -37,6 +40,7 @@ public class Menu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         
+        isPaused = false;
         Debug.Log("Unpause");
     }
 
