@@ -49,7 +49,13 @@ public class WakeupMechanics : MonoBehaviour
         if(Move.countImp > 0)
         {
             //code for Boss scolding or whateva, replace with event
+            // Loss
             Debug.Log("WAKE UP BIH");
+        }
+        else
+        {
+            // Win
+            GameManager.Instance.slothPoints += 2;
         }
         
         Debug.Log("End");
@@ -57,6 +63,8 @@ public class WakeupMechanics : MonoBehaviour
     }
 
 
+    // Called when the minigame ends
+    // Cleaup and transitions back
     public void wakeupMinigameEnd()
     {
         StopCoroutine("Testing");

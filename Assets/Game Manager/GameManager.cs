@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     // Handles logic for which route you're changing to
     // TODO
-    public void RouteSelector(int previousRoute)
+    public void RouteSelector()
     {
         int[] routeArray = new int[7]
             { greedPoints, slothPoints, pridePoints, wrathPoints, gluttonyPoints, envyPoints, lustPoints };
@@ -88,26 +88,139 @@ public class GameManager : MonoBehaviour
         bool MaxDuplicate(int[] arr, int max)
         {
             bool dupe = false;
-
+            int maxCounts = 0;
+            
+            
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] == max)
                 {
-                    dupe = true;
+                    maxCounts++;
                 }
             }
 
+            if (maxCounts > 1)
+            {
+                dupe = true;
+            }
+            
             return dupe;
         }
+        int RouteToInt(RouteState route)
+        {
+            switch (route)
+            {
+                case RouteState.Greed:
+                    return 0;
+                case RouteState.Sloth:
+                    return 1;
+                case RouteState.Pride:
+                    return 2;
+                case RouteState.Wrath:
+                    return 3;
+                case RouteState.Gluttony:
+                    return 4;
+                case RouteState.Envy:
+                    return 5;
+                case RouteState.Lust:
+                    return 6;
+                case RouteState.Indecisive:
+                    return 7;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(route), route, null);
+            }
+        }
+        RouteState IntToRoute(int i)
+        {
+            switch (i)
+            {
+                case 7:
+                    return RouteState.Indecisive;
+                case 0:
+                    return RouteState.Greed;
+                case 1:
+                    return RouteState.Sloth;
+                case 2:
+                    return RouteState.Pride;
+                case 3:
+                    return RouteState.Wrath;
+                case 4:
+                    return RouteState.Gluttony;
+                case 5:
+                    return RouteState.Envy;
+                case 6:
+                    return RouteState.Lust;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(i), i, null);
+            }
+        }
+        int MaxElementIndex(int[] arr)
+        {
+            int ind = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > arr[ind])
+                {
+                    ind = i;
+                }
+            }
+            return ind;
+        }
+
+        //Debug.Log("Route Array: " + routeArray[0] + routeArray[1] + routeArray[2] + routeArray[3] + routeArray[4] + routeArray[5] + routeArray[6]);
         
         // Gets max value from the array
         int max = MaxValue(routeArray);
         bool dupe = MaxDuplicate(routeArray, max);
+        int routeInt = RouteToInt(Route);
 
-        if (dupe)
+        Debug.Log("Max Value in Array: " + max);
+        Debug.Log("Is the Max Value Duplicate? " + dupe);
+        Debug.Log("Route Int: " + routeInt);
+        
+        RouteState newRoute = Route;
+
+        // if currently in indecision route, routeInt is out of scope for routeArray;
+        // this case handles that first
+        if (routeInt == 7)
         {
-            
+            Debug.Log("Entered 1");
+            if (dupe)
+            {
+                Debug.Log("Entered 1.1");
+                newRoute = RouteState.Indecisive;
+            }
+            else
+            {
+                Debug.Log("Entered 1.2");
+                int ind = MaxElementIndex(routeArray);
+                Debug.Log("Index: " + ind);
+                newRoute = IntToRoute(ind);
+            }
         }
+        
+        // Ties in points go to the current route
+        else if (dupe && routeArray[routeInt] == max)
+        {
+            Debug.Log("Entered 2");
+            newRoute = Route;
+        }
+        
+        // Unless you tied two new routes at the same time
+        else if (dupe && routeArray[routeInt] != max)
+        {
+            Debug.Log("Entered 3");
+            newRoute = RouteState.Indecisive;
+        }
+        else
+        {
+            Debug.Log("Entered 4");
+            int ind = MaxElementIndex(routeArray);
+            newRoute = IntToRoute(ind);
+        }
+        
+        RouteChange(newRoute);
+        
     }
     
     // Handles what happens when you change routes
@@ -156,6 +269,9 @@ public class GameManager : MonoBehaviour
                 // Selecting a minigame decrements the action counter
                 HandleMinigame();
                 break;
+            case GameState.Evening:
+                HandleEvening();
+                break;
             case GameState.Ending:
                 // Selects and ending based on final route
                 HandleEnding(Route);
@@ -173,6 +289,9 @@ public class GameManager : MonoBehaviour
     {
         actionsRemaining = 3;
         dayNumber++;
+        RouteSelector();
+        // we should add more things to the morning besides it being a transition. 
+        // probably dialogue sequences
     }
 
     public void HandleWorkday()
@@ -198,6 +317,11 @@ public class GameManager : MonoBehaviour
     public void HandleMinigame()
     {
         actionsRemaining--;
+    }
+
+    public void HandleEvening()
+    {
+        
     }
 
     public void HandleEnding(RouteState finalRoute)
@@ -250,6 +374,7 @@ public class GameManager : MonoBehaviour
         Morning,
         Workday,
         Minigame,
+        Evening,
         Ending
     }
 
