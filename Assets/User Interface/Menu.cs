@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.UI;
-using UnityEditor.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 

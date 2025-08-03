@@ -550,7 +550,8 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    greedPoints++;
+                    pridePoints += 1;
+                    envyPoints += 1;
                 }
                 break;
             default:

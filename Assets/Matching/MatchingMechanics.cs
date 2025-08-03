@@ -16,7 +16,8 @@ public class MatchingMechanics : MonoBehaviour
     public static int greedNum;
 
     [SerializeField] public AudioSource bgm;
-
+    [SerializeField] public GameObject background;
+    
     void Awake()
     {
         GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
@@ -43,9 +44,10 @@ public class MatchingMechanics : MonoBehaviour
 
     IEnumerator Matching()
     {
+        background.SetActive(true);
         bgm.Play();
         totalPoints = GameManager.Instance.greedPoints + GameManager.Instance.envyPoints + GameManager.Instance.pridePoints;
-        Invoke("matchMinigameEnd", 30);
+        Invoke("matchMinigameEnd", 30f);
         if(totalPoints == 0)
         {
             envyNum = 2;
@@ -82,6 +84,7 @@ public class MatchingMechanics : MonoBehaviour
         }
 
         bgm.Stop();
+        background.SetActive(false);
         GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
     }
 }

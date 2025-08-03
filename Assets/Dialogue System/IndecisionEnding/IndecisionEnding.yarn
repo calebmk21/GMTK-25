@@ -1,37 +1,36 @@
 ﻿title: IndecisionEnding
 ---
-GREED: Hello, there! I wanted to drop in and check-in about your performance review. Now, you’ve been at this company for a while, and to be perfectly frank, there’s been some mixed reception to your behaviour. Let’s see here…
-Narrator: He flips through pages audibly.
-GREED: Arriving late to work, blackmailing your coworkers, planning out a business on company time… there’s quite a bit to talk about here. Now, while these reports are quite unfortunate, Company Co is still very willing to continue with your employment. Of course, there are some trainings that you’d have to go through, and—
-PRIDE: Shove it up your rear.
-GREED: E-Excuse me? How dare you?! I am talking—
-PRIDE: And I’m not LISTENING! All of your “bootstrap” horse manure can go take a hike, because WE are about to go take a hike! Maybe we don’t have all the logistics sorted out yet, but we’ve got the moxie to open up our cafe!
-GREED: Really? Oh, really now? If you follow him, your naive little devil on the shoulder is going to get you ripped apart by hyenas the second you leave this place. I’ve seen it before, and if you do this I will witness it again!
-SLOTH: i… kind of agree. can we just… not do anything? running a cafe sounds like a lot of work…
-ENVY: God, you good for nothing COUCH POTATO. We could have EVERYTHING we ever wanted, with one simple solution…
-PRIDE: Yeah, that’s right! C’mon, let’s start adopting some kitties—
-ENVY: I’m not on your side, you moron.
-Narrator: You hear the sound of a shotgun racking.
-GREED: Oh lord.
-PRIDE: Bro.
-SLOTH: is that a gun?
-ENVY: Benelli M4. 
-Narrator: Envy racks the shotgun.
-ENVY: If we can’t come to a decision, I’ll make that decision myself.
-PRIDE: Bro. Bro, c’mon now. BRO.
-GREED: L-let’s discuss this. There’s no need to resort to barbaric violence—
-Narrator: Envy racks the shotgun again.
-ENVY: SHUT UP! I CALL THE SHOTS HERE! LITERALLY!
-Narrator: Envy racks the shotgun again.
-PRIDE: How many shells do you have in that thing?!
-ENVY: I’ve got twenty more shells in this six round magazine!
-Narrator: Envy racks the shotgun again.
-SLOTH: …now it’s 19…
-Narrator: You hear the sound of a sword unsheathing.
-GREED: I won’t stand for this! If a fight is what you want, a fight is what you’ll get!
-PRIDE: I, uh, um…. I’LL THROW FISTS!
-ENVY: Oh really?
-SLOTH: do whatever you want, i’m taking a nap…
-GREED: EN-GARDE! Tally HO—
+GREED: Hello, there! I wanted to drop in and check-in about your performance review. Now, you’ve been at this company for a while, and to be perfectly frank, there’s been some mixed reception to your behaviour. Let’s see here… #line:Greed_IndecisionEnding_1
+GREED: Arriving late to work, blackmailing your coworkers, planning out a business on company time… there’s quite a bit to talk about here. Now, while these reports are quite unfortunate, Company Co is still very willing to continue with your employment. Of course, there are some trainings that you’d have to go through, and— #line:Greed_IndecisionEnding_2
+PRIDE: Shove it up your rear. #line:pride_indecision_1
+GREED: E-Excuse me? How dare you?! I am talking— #line:Greed_IndecisionEnding_3.1
+PRIDE: And I’m not LISTENING! All of your “bootstrap” horse manure can go take a hike, because WE are about to go take a hike! Maybe we don’t have all the logistics sorted out yet, but we’ve got the moxie to open up our cafe! #line:pride_indecision_2
+GREED: Really? Oh, really now? If you follow him, your naive little devil on the shoulder is going to get you ripped apart by hyenas the second you leave this place. I’ve seen it before, and if you do this I will witness it again! #line:Greed_IndecisionEnding_4
+SLOTH: i… kind of agree. can we just… not do anything? running a cafe sounds like a lot of work… #line:Sloth_Indecision_Ending_1.1
+ENVY: God, you good for nothing COUCH POTATO. We could have EVERYTHING we ever wanted, with one simple solution… #line:Envy_Indecision_1
+PRIDE: Yeah, that’s right! C’mon, let’s start adopting some kitties— #line:pride_indecision_3
+ENVY: I’m not on your side, you moron. #line:Envy_Indecision_2
+Narrator: You hear the sound of a shotgun racking. #line:shotgun
+GREED: Oh lord. #line:Greed_IndecisionEnding_5.2
+PRIDE: Bro. #line:pride_indecision_4
+SLOTH: is that a gun? #line:Sloth_Indecision_Ending_2.2
+ENVY: Benelli M4. #line:Envy_Indecision_3
+Narrator: Envy racks the shotgun. #line:shotgun1
+ENVY: If we can’t come to a decision, I’ll make that decision myself. #line:Envy_Indecision_4
+PRIDE: Bro. Bro, c’mon now. BRO. #line:pride_indecision_5
+GREED: L-let’s discuss this. There’s no need to resort to barbaric violence— #line:Greed_IndecisionEnding_6
+Narrator: Envy racks the shotgun again. #line:shotgun2
+ENVY: SHUT UP! I CALL THE SHOTS HERE! LITERALLY! #line:Envy_Indecision_5
+Narrator: Envy racks the shotgun again. #line:shotgun3
+PRIDE: How many shells do you have in that thing?! #line:pride_indecision_6
+ENVY: I’ve got twenty more shells in this six round magazine! #line:Envy_Indecision_6
+Narrator: Envy racks the shotgun again. #line:shotgun4
+SLOTH: …now it’s 19… #line:Sloth_Indecision_Ending_3.2
+Narrator: You hear the sound of a sword unsheathing. #line:sword
+GREED: I won’t stand for this! If a fight is what you want, a fight is what you’ll get! #line:Greed_IndecisionEnding_7
+PRIDE: I, uh, um…. I’LL THROW FISTS! #line:pride_indecision_7
+ENVY: Oh really? #line:Envy_Indecision_7
+SLOTH: do whatever you want, i’m taking a nap… #line:Sloth_Indecision_Ending_4.3
+GREED: EN-GARDE! Tally HO— #line:Greed_IndecisionEnding_8.1
 Narrator: ...
 ===

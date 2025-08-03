@@ -1,24 +1,24 @@
 ﻿title: EnvyEnding
 ---
-GREED: Hello! I hope you’re having a good morning. I just wanted to drop by and let you know that, according to your performance review, you’ve been meeting company guidelines. Good work!
-ENVY: I see. Is that all?
-GREED: Well, actually, there was this one manager, due to unfortunate circumstances regarding professional behavior, we have had to dismiss.
-ENVY: Ah.. hahahaha… I see. And… what exactly does that entail? Will someone be stepping up to the plate?
-GREED: Oh, yes! Of course! One of our star employees has already been appointed.
+GREED: Hello! I hope you’re having a good morning. I just wanted to drop by and let you know that, according to your performance review, you’ve been meeting company guidelines. Good work! #line:Greed_Envy_Ending_1.1
+ENVY: I see. Is that all? #line:Envy_Envy_1.1
+GREED: Well, actually, there was this one manager, due to unfortunate circumstances regarding professional behavior, we have had to dismiss. #line:Greed_Envy_Ending_2
+ENVY: Ah.. hahahaha… I see. And… what exactly does that entail? Will someone be stepping up to the plate? #line:Envy_Envy_2
+GREED: Oh, yes! Of course! One of our star employees has already been appointed. #line:Greed_Envy_Ending_3.2
 ENVY: …
-ENVY: WHAT.
-GREED: …You sound disappointed.
-ENVY: We were… passed up?!
-GREED: Well… yes. You’ve only been here for 7 days. But I do love the enthusiasm! Keep it up!
-ENVY: That’s not THE POINT! You’re telling me that that blabbering imbecile from cubicle 60193 made it, but we didn’t? 
-GREED: It would appear so… On the other hand, since he has climbed up the ranks, the higher-ups have decided to raise quotas department-wide. More opportunities for us!
-ENVY: No… NO…
-GREED: Oh, don’t worry at all! Look, you’ve performed well this past week, and we’re very confident this is well within your workload.
-ENVY: And… the pay?
-GREED: The pay?
-ENVY: Are we going to be compensated for THIS?!
-GREED: Ah… well, we’re currently waiting back from finance about this subject and… well, for now, there isn’t going to be a pay adjustment.
-ENVY: Inconceivable…
-GREED: Don’t fret! I’m sure you can settle a pay negotiation and promotion with enough time and hard work—
-ENVY: NO! This is… this isn’t fair! All that planning! All that work! FOR THIS?! I– gah— NGAHHHHH—
+ENVY: WHAT. #line:Envy_Envy_3
+GREED: …You sound disappointed. #line:Greed_Envy_Ending_4.1
+ENVY: We were… passed up?! #line:Envy_Envy_4
+GREED: Well… yes. You’ve only been here for 7 days. But I do love the enthusiasm! Keep it up! #line:Greed_Envy_Ending_5
+ENVY: That’s not THE POINT! You’re telling me that that blabbering imbecile from cubicle 60193 made it, but we didn’t? #line:Envy_Envy_5
+GREED: It would appear so… On the other hand, since he has climbed up the ranks, the higher-ups have decided to raise quotas department-wide. More opportunities for us! #line:Greed_Envy_Ending_6
+ENVY: No… NO… #line:Envy_Envy_6
+GREED: Oh, don’t worry at all! Look, you’ve performed well this past week, and we’re very confident this is well within your workload. #line:Greed_Envy_Ending_7
+ENVY: And… the pay? #line:Envy_Envy_7
+GREED: The pay? #line:Greed_Envy_Ending_8
+ENVY: Are we going to be compensated for THIS?! #line:Envy_Envy_8
+GREED: Ah… well, we’re currently waiting back from finance about this subject and… well, for now, there isn’t going to be a pay adjustment. #line:Greed_Envy_Ending_9
+ENVY: Inconceivable… #line:Envy_Envy_9
+GREED: Don’t fret! I’m sure you can settle a pay negotiation and promotion with enough time and hard work— #line:Greed_Envy_Ending_10
+ENVY: NO! This is… this isn’t fair! All that planning! All that work! FOR THIS?! I– gah— NGAHHHHH— #line:Envy_Envy_10
 ===

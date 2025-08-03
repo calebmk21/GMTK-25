@@ -6,8 +6,10 @@ public class Card : MonoBehaviour
     private bool locked = false;
     public static bool stopMultMatch = false;
     private string sinType;
-    private float rand; 
+    private float rand;
 
+    private int greedConversion;
+    
     void Start()
     {
         //set card sin based on sin points
@@ -91,7 +93,12 @@ public class Card : MonoBehaviour
                         switch (this.sinType)
                         {
                             case "greed":
-                                GameManager.Instance.greedPoints += 1;
+                                greedConversion += 1;
+                                if (greedConversion % 6 == 0)
+                                {
+                                    greedConversion = 0;
+                                    GameManager.Instance.greedPoints += 1;
+                                }
                                 break;
                             case "envy":
                                 GameManager.Instance.envyPoints += 1;
