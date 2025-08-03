@@ -20,11 +20,36 @@ public class SpreadsheetLevelManager : MonoBehaviour
     private GameObject currentLevel;
     private string currentLevelName; 
     private int score;
-    private int prevScore; 
+    private int prevScore;
 
+    [SerializeField] public GameObject canvasUI;
+    [SerializeField] public GameObject minigameSelect;
+    [SerializeField] public GameObject bro;
+    
+    void Awake()
+    {
+        GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
+        bro.SetActive(true);
+        //GameObject canvasUI = GameObject.FindWithTag("SpreadsheetUI");
+    }
+    
+    void OnDestroy()
+    {
+        GameManager.OnMinigameSelect -= GameManagerOnOnMinigameSelect;
+    }
+
+    private void GameManagerOnOnMinigameSelect(GameManager.MinigameState minigame)
+    {
+        if (minigame == GameManager.MinigameState.Spreadsheet)
+        {
+            StartCoroutine(RunLevels());
+            canvasUI.SetActive(true);
+        }
+    }
+    
     void Start()
     {
-        StartCoroutine(RunLevels());
+        // StartCoroutine(RunLevels());
     }
 
     IEnumerator RunLevels()
@@ -52,7 +77,49 @@ public class SpreadsheetLevelManager : MonoBehaviour
         // ensure player is deloaded
         player.DisableInput(); 
         player.gameObject.SetActive(false);
+
+        SpreadsheetMinigameEnd();
+
     }
+
+
+    public void SpreadsheetMinigameEnd()
+    {
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
+        StopCoroutine(RunLevels());
+
+        int adjustedGreedScore = 0;
+
+        if (score < 25)
+        {
+            adjustedGreedScore = -1;
+            GameManager.Instance.slothPoints++;
+        }
+        else if (score < 100)
+        {
+            adjustedGreedScore = 0;
+        }
+        else if (score < 130)
+        {
+            adjustedGreedScore = 1;
+        }
+        else if (score < 170)
+        {
+            adjustedGreedScore = 2;
+        }
+        else if (score < 200)
+        {
+            adjustedGreedScore = 3;
+        }
+        else
+        {
+            adjustedGreedScore = 4;
+        }
+
+        GameManager.Instance.greedPoints += adjustedGreedScore;
+        minigameSelect.SetActive(true);
+    }
+    
 
     public int GetScore()
     {

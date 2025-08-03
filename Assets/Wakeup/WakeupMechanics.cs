@@ -11,6 +11,7 @@ public class WakeupMechanics : MonoBehaviour
     [SerializeField] private GameObject Z;
     [SerializeField] private int maxtoSpawn = 25;
 
+    [SerializeField] public GameObject minigameSelect;
     void Awake()
     {
         GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
@@ -82,6 +83,7 @@ public class WakeupMechanics : MonoBehaviour
         }
         
         GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
+        minigameSelect.SetActive(true);
     }
     
     void InstantiateZ()

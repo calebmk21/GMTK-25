@@ -18,5 +18,10 @@ Greed: Now, it’s time for you to show the world just what exactly you can do! 
 title: TutorialBed
 ---
 Greed: Hahaha! Oh, how amusing! It seems you misheard me when I told you to NOT press the snooze button! Common mistake, really. Let’s try that again.
-Greed: You have {$envy_points} envy points.
+===
+
+title: DayOne
+---
+Greed: DUMMY
+Greed: DUMMY 2
 ===

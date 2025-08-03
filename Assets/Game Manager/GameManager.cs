@@ -483,7 +483,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Sloth Points: " + slothPoints);
                 break;
             case MinigameState.Spreadsheet:
-                greedPoints++;
+                // greedPoints++;
                 Debug.Log("Greed Points: " + greedPoints);
                 break;
             case MinigameState.Email:
