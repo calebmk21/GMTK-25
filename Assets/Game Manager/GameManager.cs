@@ -7,12 +7,13 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using Yarn;
 using Yarn.Unity;
 public class GameManager : MonoBehaviour
 {
     // Allows this to be referenced elsewhere
     public static GameManager Instance;
-
+    public DialogueRunner dialogueRunner;
     // Length in seconds of the work day
     /*
      QUESTION: Should this be the timer to make a decision or the total timed workday
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int maxWorkdays = 8;
 
     // Day number
-    [SerializeField] int dayNumber;
+    [SerializeField] public int dayNumber;
     
     // Action counter
     [SerializeField] int actionsRemaining;
@@ -307,6 +308,38 @@ public class GameManager : MonoBehaviour
     {
         // Increments day counter
         ++dayNumber;
+        Debug.Log("Day: " + dayNumber);        
+        
+        string yarnNode = "";
+
+        switch (dayNumber)
+        {
+            case 2:
+                yarnNode = "DayTwo";
+                break;
+            case 3:
+                yarnNode = "DayThree";
+                break;
+            case 4:
+                yarnNode = "DayFour";
+                break;
+            case 5:
+                yarnNode = "DayFive";
+                break;
+            case 6:
+                yarnNode = "DaySix";
+                break;
+            case 7:
+                yarnNode = "DaySeven";
+                break;
+            case 8:
+                yarnNode = "DayEight";
+                break;
+            default:
+                yarnNode = "DayOneMorning";
+                break;
+        }
+        
         
         // Unique events for day 1 and day 2 (cut due to scope)
         // Day 1 NO LONGER only gets one action
@@ -315,11 +348,11 @@ public class GameManager : MonoBehaviour
             OnDay1?.Invoke();
             actionsRemaining = 3;
         }
-        else if (dayNumber == 2)
-        {
-            OnDay2?.Invoke();
-            actionsRemaining = 3;
-        }
+        // else if (dayNumber == 2)
+        // {
+        //     OnDay2?.Invoke();
+        //     actionsRemaining = 3;
+        // }
         
         // Begins ending if you reached the final day
         else if (dayNumber >= maxWorkdays)
@@ -328,7 +361,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Yarn Node: "+ yarnNode);
             actionsRemaining = 3;
+            dialogueRunner.StartDialogue(yarnNode);
         }
         
 
@@ -343,7 +378,7 @@ public class GameManager : MonoBehaviour
         {
             UpdateGameState(GameState.Ending);
         }
-        else if (actionsRemaining == 0)
+        else if (actionsRemaining <= 0)
         {
             // Change to evening later if need be
             UpdateGameState(GameState.Evening);
@@ -492,7 +527,7 @@ public class GameManager : MonoBehaviour
                 // greedPoints++;
                 Debug.Log("Greed Points: " + greedPoints);
                 break;
-            case MinigameState.Email:
+            case MinigameState.Match:
                 
                 // Point gain varies based on which route you are on; defaults to greed
                 // Stronger gains if you're already on the non-greed route
@@ -530,7 +565,7 @@ public class GameManager : MonoBehaviour
     {
         Sleep,
         Spreadsheet,
-        Email
+        Match
     }
 
     public enum RouteState

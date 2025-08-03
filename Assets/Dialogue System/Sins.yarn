@@ -25,7 +25,7 @@ position: -357,-355
 Greed: Hahaha! Oh, how amusing! It seems you misheard me when I told you to NOT press the snooze button! Common mistake, really. Let’s try that again.
 Greed: Now, get up!
 -> You: Snooze the alarm again.
-Sloth: *Yawns* Five more minutes please. That's all I ask.
+Sloth: *yawns* five more minutes please. that's all I ask.
 Greed: Oh God. Ignore him, please. Believe me, he’s the last thing you’d want as an influence on your work ethic.
 Greed: I have to say, this is NOT a good look for your first day; you’re going to be late! I’m getting you out of bed, whether you like it or not. You have very important tasks you have to learn today!
 <<open_workstation>>
@@ -51,7 +51,7 @@ title: PostOrientation
 position: -362,89
 ---
 Greed: See, that wasn't too bad. You only have to do this every day for the rest of your life! You'll be rich in no time. 
-Sloth: Can we sleep in tomorrow?
+Sloth: can we sleep in tomorrow?
 Greed: Oh God you're back. Why are you back? Move along now. Tah-Tah!
 Greed: ...
 Greed: He's gone? Good. 
@@ -71,5 +71,59 @@ Envy: Let’s go show those know-it-alls at the office who the real boss is.
 Pride: This “Company Co.” sounds like a joke. Can’t we do something more valuable with our time?
 Greed: …And who are you two again? I forgot the part where I asked for your input. Anyways, off you go. There is much to do.
 <<to_morning>>
+<<to_workday>>
+===
+
+title: DayTwo
+---
+<<close_workstation>>
+Greed: Hello again. Did you find yesterday to be fulfilling? Of course you did! Isn’t this new life so refreshing? It’s time for another day at the office!
+Pride: What did I say yesterday? I am NOT jumping through hoops for some corporation, and don’t you think for a second that this is good for anyone. 
+Sloth: can’t we just…stay here…zzz…  
+Greed: Oh, don’t listen to them, you've got all you need at the workplace. Go on now, git! 
+<<to_workday>>
+===
+
+title: DayThree
+---
+Greed: Greetings! It’s bright and sunny today, fantastic weather for more work!
+Envy: Tch, I’m happy you’re enjoying your day. What do you have to say about us who have to deal with you?
+Pride: Is this really what a University of College student should be doing with their time? This is pointless.
+Greed: Sigh. I wish I could foster a better working environment for you, but what’s a workplace without its challenges? Let’s head out now!
+<<to_workday>>
+===
+
+title: DayFour
+---
+Greed: Heyo, wake up! You’ve made it halfway through the week! Isn’t this just delightful? Oh? You seem a bit tired. Don’t let yourself get distracted by his ways. It’s off to the office again!
+Sloth: again? we just went yesterday…and i’m exhausted…
+Greed: Really? You’re still here? We do not need this attitude. Doesn’t talking require energy anyway?
+Sloth: …whatever…zzz……
+Envy: If only I could ignore your incessant pushiness like he does. Let’s just get this over with. Just thinking about the senior employees makes my blood boil. 
+Greed: Aha! Don’t you have a sharp tongue? Anyways…let’s head over now.
+<<to_workday>>
+===
+
+title: DayFive
+---
+Greed: Good day! You’re doing wonderfully at the office. It’s only a matter of time before we secure that coveted promotion. 
+Envy: You know…things would go a lot faster if there weren’t so many obstacles in the way. Let’s knock ‘em down a peg!
+Greed: There, there, no need for such offhanded methods in this line of work, it’s just about time for us to start working again. 
+<<to_workday>>
+===
+
+title: DaySix
+---
+Greed: Hello there. We’ve almost reached the end of the week, and you are simply doing marvelously! Keep it up.
+Pride: How long are we going to keep this up? Groveling at the feet of some people we’d never even see the faces of? Say, why not just open our own establishment? Bakery? No, sounds too tricky… Investment firm? Boring… Oh, I got it! Who could pass up a cat cafe?
+Greed: Haha! I never took you as much of a comic, well done! Did you hear that? A cat cafe. What kind of dimwit would even conceive such an idea? Preposterous! Well, let’s head over to the office; those spreadsheets won’t finish by themselves!
+<<to_workday>>
+===
+
+title: DaySeven
+---
+Greed: Whew, how the days fly by! You’ve nearly completed your first week at Company Co! This is most certainly a reason to celebrate. 
+Sloth: yayyy…..does this mean we’re finally done? …zzz…
+Greed: You again? Thought I had finally been rid of you. This is merely the beginning of a successful career! Off you go, there is no time to waste. Finish strong and make me proud.
 <<to_workday>>
 ===

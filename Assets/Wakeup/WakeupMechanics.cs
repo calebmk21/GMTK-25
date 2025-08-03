@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEditor;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,8 @@ public class WakeupMechanics : MonoBehaviour
     [SerializeField] private int maxtoSpawn = 25;
 
     [SerializeField] public GameObject minigameSelect;
+
+    [SerializeField] public AudioSource bgm;
     void Awake()
     {
         GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
@@ -40,6 +43,7 @@ public class WakeupMechanics : MonoBehaviour
 
     IEnumerator Testing()
     {
+        bgm.Play();
         // float startTime = Time.time;
         for(int i = 0; i < maxtoSpawn; ++i)
         {
@@ -81,7 +85,8 @@ public class WakeupMechanics : MonoBehaviour
                 DestroyImmediate(item, true);
             }
         }
-        
+
+        bgm.Stop();
         GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
         minigameSelect.SetActive(true);
     }
