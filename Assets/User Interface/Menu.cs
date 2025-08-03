@@ -102,6 +102,11 @@ public class Menu : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameManager.GameState.Ending);
     }
 
+    public void SkipDay()
+    {
+        GameManager.Instance.dayNumber++;
+    }
+
     public void GameManagerSummary()
     {
         Debug.Log("Greed Points: " + GameManager.Instance.greedPoints);

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int maxWorkdays = 8;
 
     // Day number
-    [SerializeField] int dayNumber;
+    [SerializeField] public int dayNumber;
     
     // Action counter
     [SerializeField] int actionsRemaining;
@@ -308,7 +308,6 @@ public class GameManager : MonoBehaviour
     {
         // Increments day counter
         ++dayNumber;
-        
         Debug.Log("Day: " + dayNumber);        
         
         string yarnNode = "";
@@ -398,7 +397,6 @@ public class GameManager : MonoBehaviour
 
     public void HandleEvening()
     {
-        minigamePanel.SetActive(false);
         RouteSelector();
         SendToYarn();
         UpdateGameState(GameState.Morning);

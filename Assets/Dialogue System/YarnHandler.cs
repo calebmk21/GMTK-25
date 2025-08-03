@@ -33,10 +33,19 @@ public class YarnHandler : MonoBehaviour
         dialogueRunner.AddCommandHandler(
             "open_workstation",
             OpenWorkstation);
+        dialogueRunner.AddCommandHandler(
+            "close_workstation",
+            CloseWorkstation);
         
     }
     
     // Yarn Commands
+
+    public void CloseWorkstation()
+    {
+        workstation.SetActive(false);
+        Debug.Log("Closed Workstation");
+    }
     public void OpenWorkstation()
     {
         workstation.SetActive(true);
