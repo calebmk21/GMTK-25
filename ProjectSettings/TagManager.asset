@@ -7,7 +7,7 @@ TagManager:
   - Start
   - End
   - ClickableZ
-  - SpreadsheetUI
+  - CardClickable
   layers:
   - Default
   - TransparentFX
