@@ -1,11 +1,14 @@
 ﻿title: TutorialIntro
-position: -5,-329
+position: -358,-567
 ---
 <<declare $greed_points = 0>>
 <<declare $sloth_points = 0>>
 <<declare $pride_points = 0>>
 <<declare $envy_points = 0>>
 <<declare $route = "Greed">>
+<<declare $state = "Tutorial">>
+<<declare $day = 0>>
+<<declare $first_minigame = "Spreadsheet">>
 
 Greed: Once upon a time, there was a loyal, hardworking employee named…
 Greed: …
@@ -16,12 +19,57 @@ Greed: Now, it’s time for you to show the world just what exactly you can do! 
 ===
 
 title: TutorialBed
+position: -357,-355
 ---
+-> You: Snooze the alarm.
 Greed: Hahaha! Oh, how amusing! It seems you misheard me when I told you to NOT press the snooze button! Common mistake, really. Let’s try that again.
+Greed: Now, get up!
+-> You: Snooze the alarm again.
+Sloth: *Yawns* Five more minutes please. That's all I ask.
+Greed: Oh God. Ignore him, please. Believe me, he’s the last thing you’d want as an influence on your work ethic.
+Greed: I have to say, this is NOT a good look for your first day; you’re going to be late! I’m getting you out of bed, whether you like it or not. You have very important tasks you have to learn today!
+<<open_workstation>>
+<<jump Orientation>>
+===
+title: Orientation
+position: -362,-129
+---
+Tutorial: Welcome to your new job at Company Co.
+Tutorial: Here you can perform one of three different actions.
+Tutorial: You can work on Spreadsheets, which is part of your job.
+Tutorial: You can send out Emails, which is the other part of your job.
+Tutorial: Or you can listen to the eepy voice in your head and Nap.
+Tutorial: It's up to you to decide how you want to spend your first 7 days here.
+Tutorial: Depending on your actions, you may get one of five different endings. 
+Tutorial: This concludes your orientation.
+Tutorial: From now on, you'll only hear from the voices in your head.
+<<jump PostOrientation>>
 ===
 
-title: DayOne
+
+title: PostOrientation
+position: -362,89
 ---
-Greed: DUMMY
-Greed: DUMMY 2
+Greed: See, that wasn't too bad. You only have to do this every day for the rest of your life! You'll be rich in no time. 
+Sloth: Can we sleep in tomorrow?
+Greed: Oh God you're back. Why are you back? Move along now. Tah-Tah!
+Greed: ...
+Greed: He's gone? Good. 
+Greed: Okay, so you're currently on a probationary period. In 7 day's time, you'll have your first performance review. 
+Greed: Be a good little employee until then, okay? We can't have any mishaps or ulterior motives jeopardizing this WONDERFUL opportunity you have now, can we?
+<<to_game>>
+===
+
+
+title: DayOneMorning
+position: 275,-382
+---
+Greed: Good morning! Ready for your first REAL day at work? We have a lot on the agenda for today. Hup hup, this job won't keep itself.
+Sloth: just five-
+Greed: Nope, we're not doing this again. 
+Envy: Let’s go show those know-it-alls at the office who the real boss is.
+Pride: This “Company Co.” sounds like a joke. Can’t we do something more valuable with our time?
+Greed: …And who are you two again? I forgot the part where I asked for your input. Anyways, off you go. There is much to do.
+<<to_morning>>
+<<to_workday>>
 ===

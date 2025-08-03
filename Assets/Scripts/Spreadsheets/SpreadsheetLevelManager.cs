@@ -118,6 +118,7 @@ public class SpreadsheetLevelManager : MonoBehaviour
 
         GameManager.Instance.greedPoints += adjustedGreedScore;
         minigameSelect.SetActive(true);
+        canvasUI.SetActive(false);
     }
     
 

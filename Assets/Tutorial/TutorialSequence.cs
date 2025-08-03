@@ -2,38 +2,10 @@ using UnityEngine;
 
 public class TutorialSequence : MonoBehaviour
 {
+    public GameObject tutorialWorkstation;
 
-    void Awake()
+    public void OpenWorkstation()
     {
-        GameManager.OnSnooze += GameManagerOnSnooze;
-    }
-    
-    void OnDestroy()
-    {
-        GameManager.OnSnooze -= GameManagerOnSnooze;
-    }
-
-    public void GameManagerOnSnooze()
-    {
-        
-    }
-    
-    public void SnoozeButton()
-    {
-        GameManager.Instance.SnoozeAlarm();
-    }
-    
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        tutorialWorkstation.SetActive(true);
     }
 }

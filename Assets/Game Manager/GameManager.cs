@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
     public RouteState Route;
     public MinigameState Minigame;
 
-    public string routeString; 
+    public string routeString;
+    public string stateString;
 
     // Events
     public static event Action<GameState> OnGameStateChanged;
@@ -307,12 +308,12 @@ public class GameManager : MonoBehaviour
         // Increments day counter
         ++dayNumber;
         
-        // Unique events for day 1 and day 2
-        // Day 1 only gets one action
+        // Unique events for day 1 and day 2 (cut due to scope)
+        // Day 1 NO LONGER only gets one action
         if (dayNumber == 1)
         {
             OnDay1?.Invoke();
-            actionsRemaining = 1;
+            actionsRemaining = 3;
         }
         else if (dayNumber == 2)
         {
@@ -361,20 +362,25 @@ public class GameManager : MonoBehaviour
 
     public void HandleEvening()
     {
-        // gives Yarnspinner the values at the end of the day
+        RouteSelector();
+        SendToYarn();
+        UpdateGameState(GameState.Morning);
+    }
+
+    public void SendToYarn()
+    {   
+        routeString = RouteStateToString(Route);
+        stateString = GameStateToString(State);
         variableStorage.SetValue("$greed_points", greedPoints);
         variableStorage.SetValue("$sloth_points", slothPoints);
         variableStorage.SetValue("$pride_points", pridePoints);
         variableStorage.SetValue("$envy_points", envyPoints);
-        
-        UpdateGameState(GameState.Morning);
-        RouteSelector();
-        routeString = RouteStateToString(Route);
-        
         variableStorage.SetValue("$route", routeString);
-
+        variableStorage.SetValue("$state", stateString);
+        variableStorage.SetValue("$day", dayNumber);
     }
     
+
     public void HandleEnding(RouteState finalRoute)
     {
         switch (finalRoute)
@@ -382,7 +388,7 @@ public class GameManager : MonoBehaviour
             case RouteState.Indecisive:
                 break;
             case RouteState.Greed:
-                actionsRemaining = 1000;
+                //actionsRemaining = 1000;
                 break;
             case RouteState.Sloth:
                 break;
