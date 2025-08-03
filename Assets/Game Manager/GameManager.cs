@@ -370,6 +370,10 @@ public class GameManager : MonoBehaviour
                 greedPoints++;
                 Debug.Log("Greed Points: " + greedPoints);
                 break;
+            case MinigameState.Match:
+                greedPoints++;
+                Debug.Log("Greed Points: " + greedPoints);
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(minigame), minigame, null);
         }
@@ -390,7 +394,8 @@ public class GameManager : MonoBehaviour
     public enum MinigameState
     {
         Sleep,
-        Spreadsheet
+        Spreadsheet,
+        Match
     }
 
     public enum RouteState
