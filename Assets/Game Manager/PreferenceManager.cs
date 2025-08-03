@@ -21,8 +21,7 @@ public class PreferenceManager : MonoBehaviour
 
     public void SavePrefs()
     {
-        // edit this once sliders are implemented
-        PlayerPrefs.SetFloat(MasterVolumeKey, 10);
+
     }
 
     public void LoadPrefs()

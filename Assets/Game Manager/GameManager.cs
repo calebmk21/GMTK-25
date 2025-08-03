@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 public class GameManager : MonoBehaviour
 {
     // Allows this to be referenced elsewhere
@@ -20,10 +21,10 @@ public class GameManager : MonoBehaviour
      ALTERNATIVELY we can have this be the timer to make a decision and you get locked into said
      decision and must finish it (to success or fail depending on performance), then it moves to the next segment
      */
-    [SerializeField] public float workdayLength = 120f;
+    //[SerializeField] public float workdayLength = 120f;
     
     // Number of workdays playable
-    [SerializeField] public int maxWorkdays = 10;
+    [SerializeField] public int maxWorkdays = 8;
 
     // Day number
     [SerializeField] int dayNumber;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
     public RouteState Route;
     public MinigameState Minigame;
 
+    public string routeString; 
+
     // Events
     public static event Action<GameState> OnGameStateChanged;
     public static event Action<RouteState> OnRouteStateChanged;
@@ -61,9 +64,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    // interfacing with yarn variables
+    private InMemoryVariableStorage variableStorage;
+    
     void Start()
     {
         UpdateGameState(GameState.Tutorial);
+        variableStorage = FindFirstObjectByType<InMemoryVariableStorage>();
         //Debug.Log("Actions Remaining: " + actionsRemaining);
     }
 
@@ -314,7 +321,7 @@ public class GameManager : MonoBehaviour
         }
         
         // Begins ending if you reached the final day
-        else if (dayNumber == maxWorkdays)
+        else if (dayNumber >= maxWorkdays)
         {
             UpdateGameState(GameState.Ending);
         }
@@ -323,8 +330,6 @@ public class GameManager : MonoBehaviour
             actionsRemaining = 3;
         }
         
-        
-        RouteSelector();
 
     }
 
@@ -333,13 +338,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Number of Actions: " + actionsRemaining);
         Debug.Log("Currently on Day: "+ dayNumber);
         
-        if (dayNumber == maxWorkdays)
+        if (dayNumber >= maxWorkdays)
         {
             UpdateGameState(GameState.Ending);
         }
         else if (actionsRemaining == 0)
         {
-            UpdateGameState(GameState.Morning);
+            // Change to evening later if need be
+            UpdateGameState(GameState.Evening);
         }
         else
         {
@@ -355,7 +361,18 @@ public class GameManager : MonoBehaviour
 
     public void HandleEvening()
     {
+        // gives Yarnspinner the values at the end of the day
+        variableStorage.SetValue("$greed_points", greedPoints);
+        variableStorage.SetValue("$sloth_points", slothPoints);
+        variableStorage.SetValue("$pride_points", pridePoints);
+        variableStorage.SetValue("$envy_points", envyPoints);
         
+        UpdateGameState(GameState.Morning);
+        RouteSelector();
+        routeString = RouteStateToString(Route);
+        
+        variableStorage.SetValue("$route", routeString);
+
     }
     
     public void HandleEnding(RouteState finalRoute)
@@ -365,6 +382,7 @@ public class GameManager : MonoBehaviour
             case RouteState.Indecisive:
                 break;
             case RouteState.Greed:
+                actionsRemaining = 1000;
                 break;
             case RouteState.Sloth:
                 break;
@@ -389,6 +407,72 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public string GameStateToString(GameState state)
+    {
+        string s = "";
+
+        switch (state)
+        {
+            case GameState.Morning:
+                s = "Morning";
+                break;
+            case GameState.Workday:
+                s = "Workday";
+                break;
+            case GameState.Minigame:
+                s = "Minigame";
+                break;
+            case GameState.Evening:
+                s = "Evening";
+                break;
+            case GameState.Ending:
+                s = "Ending";
+                break;
+            case GameState.Tutorial:
+                s = "Tutorial";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
+        return s;
+    }
+    public string RouteStateToString(RouteState route)
+    {
+        string s = "";
+        switch (route)
+        {
+            case RouteState.Indecisive:
+                s = "Indecisive";
+                break;
+            case RouteState.Greed:
+                s = "Greed";
+                break;
+            case RouteState.Sloth:
+                s = "Sloth";
+                break;
+            case RouteState.Pride:
+                s = "Pride";
+                break;
+            case RouteState.Wrath:
+                s = "Wrath";
+                break;
+            case RouteState.Gluttony:
+                s = "Gluttony";
+                break;
+            case RouteState.Envy:
+                s = "Envy";
+                break;
+            case RouteState.Lust:
+                s = "Lust";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(route), route, null);
+        }
+
+        return s;
+    }
+    
+    
     public void MinigameSelection(MinigameState minigame)
     {
         Minigame = minigame;

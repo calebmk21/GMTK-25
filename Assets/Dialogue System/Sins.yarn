@@ -1,0 +1,22 @@
+﻿title: TutorialIntro
+position: -5,-329
+---
+<<declare $greed_points = 0>>
+<<declare $sloth_points = 0>>
+<<declare $pride_points = 0>>
+<<declare $envy_points = 0>>
+<<declare $route = "Greed">>
+
+Greed: Once upon a time, there was a loyal, hardworking employee named…
+Greed: …
+Greed: Well, that’s truly embarrassing. It appears that I didn’t receive ANY information about your personal details. I’m deeply sorry, but would you mind telling me your name?
+Greed: I see. Duly noted for possible usage later! Before I say anything else, congratulations on being hired at Company Co! Truly, this is a marvelous accomplishment for someone straight out of university with almost nothing to their name.
+Greed: Now, it’s time for you to show the world just what exactly you can do! Get out of bed, and let’s get to work!
+<<jump TutorialBed>>
+===
+
+title: TutorialBed
+---
+Greed: Hahaha! Oh, how amusing! It seems you misheard me when I told you to NOT press the snooze button! Common mistake, really. Let’s try that again.
+Greed: You have {$envy_points} envy points.
+===

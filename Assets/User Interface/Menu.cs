@@ -77,6 +77,15 @@ public class Menu : MonoBehaviour
         panelToggle(panel);
     }
     
+    public void playEmailMinigame(GameObject panel)
+    {
+        
+        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Email);
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Minigame);
+        panelToggle(panel);
+    }
+    
+    
     // Debug Functions
     public void SkipToMorning()
     {
