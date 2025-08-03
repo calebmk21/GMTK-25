@@ -25,7 +25,7 @@ position: -357,-355
 Greed: Hahaha! Oh, how amusing! It seems you misheard me when I told you to NOT press the snooze button! Common mistake, really. Let’s try that again.
 Greed: Now, get up!
 -> You: Snooze the alarm again.
-Sloth: *Yawns* Five more minutes please. That's all I ask.
+Sloth: *yawns* five more minutes please. that's all I ask.
 Greed: Oh God. Ignore him, please. Believe me, he’s the last thing you’d want as an influence on your work ethic.
 Greed: I have to say, this is NOT a good look for your first day; you’re going to be late! I’m getting you out of bed, whether you like it or not. You have very important tasks you have to learn today!
 <<open_workstation>>
@@ -51,7 +51,7 @@ title: PostOrientation
 position: -362,89
 ---
 Greed: See, that wasn't too bad. You only have to do this every day for the rest of your life! You'll be rich in no time. 
-Sloth: Can we sleep in tomorrow?
+Sloth: can we sleep in tomorrow?
 Greed: Oh God you're back. Why are you back? Move along now. Tah-Tah!
 Greed: ...
 Greed: He's gone? Good. 
@@ -71,5 +71,14 @@ Envy: Let’s go show those know-it-alls at the office who the real boss is.
 Pride: This “Company Co.” sounds like a joke. Can’t we do something more valuable with our time?
 Greed: …And who are you two again? I forgot the part where I asked for your input. Anyways, off you go. There is much to do.
 <<to_morning>>
+<<to_workday>>
+===
+
+title: DayTwo
+---
+Greed: Hello again. Did you find yesterday to be fulfilling? Of course you did! Isn’t this new life so refreshing? It’s time for another day at the office!
+Pride: What did I say yesterday? I am NOT jumping through hoops for some corporation, and don’t you think for a second that this is good for anyone. 
+Sloth: can’t we just…stay here…zzz…  
+Greed: Oh, don’t listen to them, you've got all you need at the workplace. Go on now, git! 
 <<to_workday>>
 ===

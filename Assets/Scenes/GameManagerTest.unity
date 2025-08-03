@@ -4128,6 +4128,13 @@ MonoBehaviour:
   - Level1
   - Level2
   - Level3
+  - Level4
+  - Level5
+  - Level6
+  - Level7
+  - Level8
+  - Level9
+  - Level10
   hasBeenTile: {fileID: 11400000, guid: fb492e3bc0b1ceb4e94b416832320e0e, type: 2}
   wallLayer:
     serializedVersion: 2
@@ -6522,6 +6529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1620e1cfe75f58743b643bdeab25f4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 1336186633}
   maxWorkdays: 8
   dayNumber: 0
   actionsRemaining: 0

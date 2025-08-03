@@ -35,7 +35,8 @@ public class YarnHandler : MonoBehaviour
             OpenWorkstation);
         
     }
-
+    
+    // Yarn Commands
     public void OpenWorkstation()
     {
         workstation.SetActive(true);
@@ -66,15 +67,10 @@ public class YarnHandler : MonoBehaviour
     {
         GameManager.Instance.UpdateGameState(GameManager.GameState.Evening);
     }
-    
-    void OnDestroy()
-    {
-        
-    }
 
-    public void Dummy(string nodeName)
+    public void PlayNewNode(string nodeName)
     {
-        Debug.Log(nodeName);
+        dialogueRunner.StartDialogue(nodeName);
     }
     
     
