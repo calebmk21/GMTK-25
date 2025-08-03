@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Start
   - End
+  - ClickableZ
+  - SpreadsheetUI
   layers:
   - Default
   - TransparentFX
