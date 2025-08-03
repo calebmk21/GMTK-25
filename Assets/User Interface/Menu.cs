@@ -80,7 +80,7 @@ public class Menu : MonoBehaviour
     public void playEmailMinigame(GameObject panel)
     {
         
-        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Email);
+        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Match);
         GameManager.Instance.UpdateGameState(GameManager.GameState.Minigame);
         panelToggle(panel);
     }

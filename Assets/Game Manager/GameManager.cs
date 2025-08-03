@@ -527,7 +527,7 @@ public class GameManager : MonoBehaviour
                 // greedPoints++;
                 Debug.Log("Greed Points: " + greedPoints);
                 break;
-            case MinigameState.Email:
+            case MinigameState.Match:
                 
                 // Point gain varies based on which route you are on; defaults to greed
                 // Stronger gains if you're already on the non-greed route
@@ -565,7 +565,7 @@ public class GameManager : MonoBehaviour
     {
         Sleep,
         Spreadsheet,
-        Email
+        Match
     }
 
     public enum RouteState

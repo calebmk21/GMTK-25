@@ -25,6 +25,8 @@ public class SpreadsheetLevelManager : MonoBehaviour
     [SerializeField] public GameObject canvasUI;
     [SerializeField] public GameObject minigameSelect;
     [SerializeField] public GameObject bro;
+
+    [SerializeField] public AudioSource bgm;
     
     void Awake()
     {
@@ -54,6 +56,8 @@ public class SpreadsheetLevelManager : MonoBehaviour
 
     IEnumerator RunLevels()
     {
+        
+        bgm.Play();
         UpdateScore(0);
         prevScore = 0;
         float elapsedTime = 0f;
@@ -119,6 +123,7 @@ public class SpreadsheetLevelManager : MonoBehaviour
         GameManager.Instance.greedPoints += adjustedGreedScore;
         minigameSelect.SetActive(true);
         canvasUI.SetActive(false);
+        bgm.Stop();
     }
     
 
