@@ -36,11 +36,19 @@ public class YarnHandler : MonoBehaviour
         dialogueRunner.AddCommandHandler(
             "close_workstation",
             CloseWorkstation);
+        dialogueRunner.AddCommandHandler(
+            "greed_ending",
+            SetGreedEnding);
         
     }
     
     // Yarn Commands
 
+    public void SetGreedEnding()
+    {
+        GameManager.Instance.SetGreedEndingStatusWithoutTheBS();
+    }
+    
     public void CloseWorkstation()
     {
         workstation.SetActive(false);

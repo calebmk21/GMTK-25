@@ -1,0 +1,128 @@
+﻿title: GreedEnding
+---
+GREED: Hello, hello! My goodness, you've been performing exceptionally. Your impact on the company surely will get you noticed by the higher ups.
+<<greed_ending>>
+<<open_workstation>>
+===
+title: Greed1
+---
+<<close_workstation>>
+GREED: Good morning! Sleep well? I sure hope you did, because we have quite a few tasks for you. But I know you can do it!
+<<open_workstation>>
+===
+title: Greed2
+---
+<<close_workstation>>
+GREED: Hello little one! Ready to fill out more spreadsheets? Of course you are— a good employee is always ready!
+<<open_workstation>>
+===
+title: Greed3
+---
+<<close_workstation>>
+GREED: Greetings! Lovely weather today isn’t it? Well, actually, I’m not sure what it’s like out there— but that doesn’t really matter, because your life is mostly in this office anyways!
+<<open_workstation>>
+===
+title: Greed4
+---
+<<close_workstation>>
+GREED: Bedtime’s over! Great news, the top brass just gave us some more work to do! A little birdy told me that if you keep it up, you might get their eyes on you sooner or later! 
+<<open_workstation>>
+===
+title: Greed5
+---
+<<close_workstation>>
+GREED: Rise and shine! Remember, if ever feeling under the weather for some reason, make sure to submit a personal day request ten days ahead of time. I’ve heard that Admin approves them 30% of the time! How generous of them!
+<<open_workstation>>
+===
+title: Greed6
+---
+<<close_workstation>>
+GREED: Top of the morning to you! I heard that you’re approaching some thresholds; you might be looking at bonus time if you keep this up! Well done!
+<<open_workstation>>
+===
+title: Greed7
+---
+<<close_workstation>>
+GREED: Welcome to daytime! I’ve been reading some very intriguing articles on how to improve productivity! Let’s see here… eliminate distractions. Well, that’s all done and good, now that those pesky other voices have disappeared! I am all you need!
+<<open_workstation>>
+===
+title: Greed8
+---
+<<close_workstation>>
+GREED: Have you escaped your lovely dreams yet? I’m sure you’ve been dreaming about that promotion that’s sure to come! Well, I have a dream that you’ll accomplish your dream! Keep dreaming, dreamer!
+<<open_workstation>>
+===
+title: Greed9
+---
+<<close_workstation>>
+GREED: Good afternight! Afternoon! Night! Morning! Oh God, I don’t have a sense of time anymore. But I suppose it’s all irrelevant anyway, given that we’re here all day everyday!
+<<open_workstation>>
+===
+title: Greed10
+---
+<<close_workstation>>
+GREED: I have some… unfortunate news. The coffee machine has broken down. Not that it affects you, since it’s reserved only for department managers, but we’re all mandated by company policy to mourn for the loss of company property. *sniff* It was such a hard-working machine…
+<<open_workstation>>
+===
+title: Greed11
+---
+<<close_workstation>>
+GREED: Salutations! You’ve been cordially invited to the company potluck this… er… well, I’m not entirely sure, actually. It keeps being pushed back because everyone’s so hard at work. But keep it on your calendar! Somewhere!
+<<open_workstation>>
+===
+title: Greed12
+---
+<<close_workstation>>
+GREED: G’day! It would seem that Company Co. has upped its amenities game with more saltine crackers. It must be due to your hard work, simply delightful! Keep at it, and we might even get something fancy… Jam! Luncheon meats! The works!
+<<open_workstation>>
+===
+title: Greed13
+---
+<<close_workstation>>
+GREED: Bonjour! How was that? Did that sound authentic? I’ve heard the company is looking to start implementing mandatory language classes in the near future; all on your own time of course, but this might be a fantastic opportunity to add a new skill to your CV! How exciting!
+<<open_workstation>>
+===
+title: Greed14
+---
+<<close_workstation>>
+GREED: Hi there! So, apparently, one of the new interns has just left. Tsk, tsk. Such a shame. They were doing so well! But then they suddenly had this outrageous idea that they could somehow open up a cafe on their own, and then left! How disgraceful… but you’d never do that, right?! You’d never leave me, right?!
+<<open_workstation>>
+===
+title: Greed15
+---
+<<close_workstation>>
+GREED: Hellooo Sunshine! Seems that pesky worker 3 cubicles down had finally gotten that promotion they were looking for. You know what that means? More work for you in your department! Opportunities are springing up as we speak, and it’s up to you to take advantage of them!
+<<open_workstation>>
+===
+title: Greed16
+---
+<<close_workstation>>
+GREED: What’s kicking, little chicken? I’ve heard that the company is trying to reach out and experiment with new ways of how to capture a younger audience. Perhaps you should look into investing in a fidget spinner? That would surely give you a talking point with the kids these days!
+<<open_workstation>>
+===
+title: Greed17
+---
+<<close_workstation>>
+GREED: Hello hello hello! The company is planning on implementing a “Bring your Children to Work Day” soon. Now, this obviously doesn’t apply to you, because I know you’re too hard at work to worry about that sort of thing yet, but if you hear the sound of children laughing or screaming like the Devil, either or, you know why.
+<<open_workstation>>
+===
+title: Greed18
+---
+<<close_workstation>>
+GREED: How are you? I hope you’re doing well! Friends always make sure their friends are in peak performance to do their best! You might be surprised I called you a friend! Well, that’s because you are! Life is short, and it’s always a good idea to make a declaration of friendship with those that you share a bond with. So, let’s get to work, Friend!
+<<open_workstation>>
+===
+title: Greed19
+---
+<<close_workstation>>
+GREED: Wakey wakey, eggs and bakey! Oh wow, seems like your other, less motivated coworkers have fallen off the corporate ladder. How amusing! I knew you would never succumb to such weakness, my friend. Ha… oh my. If all goes well, you might actually be getting that promotion soon…
+<<open_workstation>>
+===
+title: Greed20
+---
+GREED: Hello. You’ve been at this for quite a while, haven’t you? It seems like it was only just yesterday when you came into the workplace, but since then, you’ve made a name for yourself. To me, at least. And… it seems like my purpose might be… accomplished. And… it may be time for me to take my leave. 
+GREED: Don’t worry! This isn’t a goodbye— I, well, actually… yes. It is. But you don’t need me. You have yourself now. And, in the future, when you get that promotion— not if, WHEN, you do, just make sure that you guide those new interns into this company and give them the same purpose and drive you have.
+GREED: It was a pleasure. I just wanted to say… I’m so proud of you. 
+GREED: Nothing else to say. Farewell. Friend.
+Narrator: GREED END
+===

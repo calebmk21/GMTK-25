@@ -268,7 +268,7 @@ public class GameManager : MonoBehaviour
         
         OnRouteStateChanged?.Invoke(newRoute);
     }
-
+    
     public void UpdateGameState(GameState newState)
     {
         State = newState;
@@ -289,7 +289,6 @@ public class GameManager : MonoBehaviour
                 HandleEvening();
                 break;
             case GameState.Ending:
-                // Selects and ending based on final route
                 HandleEnding(Route);
                 break;
             case GameState.Tutorial:
@@ -300,6 +299,12 @@ public class GameManager : MonoBehaviour
         }
         
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    public void SetGreedEndingStatusWithoutTheBS()
+    {
+        State = GameState.Ending;
+        Route = RouteState.Greed;
     }
     
     // Game State Functions
@@ -421,19 +426,23 @@ public class GameManager : MonoBehaviour
         switch (finalRoute)
         {
             case RouteState.Indecisive:
+                SceneManager.LoadScene("IndecisionEnding");
                 break;
             case RouteState.Greed:
-                //actionsRemaining = 1000;
+                SceneManager.LoadScene("GreedEnding");
                 break;
             case RouteState.Sloth:
+                SceneManager.LoadScene("SlothEnding");
                 break;
             case RouteState.Pride:
+                SceneManager.LoadScene("PrideEnding");
                 break;
             case RouteState.Wrath:
                 break;
             case RouteState.Gluttony:
                 break;
             case RouteState.Envy:
+                SceneManager.LoadScene("EnvyEnding");
                 break;
             case RouteState.Lust:
                 break;
@@ -579,11 +588,16 @@ public class GameManager : MonoBehaviour
         Envy,
         Lust
     }
-    
-    // Tutorial Methods
-    public void SnoozeAlarm()
+
+
+    public int greedNumber = 0;
+    public string greedString = "";
+    public void AdvanceGreedDialogue()
     {
-        OnSnooze?.Invoke();
+        greedNumber++;
+        greedString = "Greed" + greedNumber.ToString();
+        Debug.Log("Greed String: " + greedString);
+        dialogueRunner.StartDialogue(greedString);
     }
     
 }

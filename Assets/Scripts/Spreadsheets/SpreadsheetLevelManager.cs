@@ -42,9 +42,15 @@ public class SpreadsheetLevelManager : MonoBehaviour
 
     private void GameManagerOnOnMinigameSelect(GameManager.MinigameState minigame)
     {
-        if (minigame == GameManager.MinigameState.Spreadsheet)
+        if (minigame == GameManager.MinigameState.Spreadsheet && GameManager.Instance.State != GameManager.GameState.Ending)
         {
             StartCoroutine(RunLevels());
+            canvasUI.SetActive(true);
+        }
+        else if (GameManager.Instance.State == GameManager.GameState.Ending &&
+                 GameManager.Instance.Route == GameManager.RouteState.Greed)
+        {
+            StartCoroutine(RunLevelsGreedEnding());
             canvasUI.SetActive(true);
         }
     }
@@ -122,6 +128,46 @@ public class SpreadsheetLevelManager : MonoBehaviour
 
         GameManager.Instance.greedPoints += adjustedGreedScore;
         minigameSelect.SetActive(true);
+        canvasUI.SetActive(false);
+        bgm.Stop();
+    }
+    
+    IEnumerator RunLevelsGreedEnding()
+    {
+        
+        bgm.Play();
+        UpdateScore(0);
+        prevScore = 0;
+        float elapsedTime = 0f;
+        // ensure player is loaded
+        player.EnableInput(); 
+        player.gameObject.SetActive(true);
+        while (elapsedTime < levelDuration)
+        {
+            LoadLevel(levels[Random.Range(0, levels.Length)]);
+            while (elapsedTime < levelDuration && !player.GetHasWon())
+            {
+                // track time
+                timerText.text = $"Time Left: {(int)(levelDuration - elapsedTime)}";
+                elapsedTime += Time.deltaTime;
+                UpdateScore(player.GetScore());
+                yield return null;
+            }
+            UnloadLevel();
+            yield return null;
+        }
+        // ensure player is deloaded
+        player.DisableInput(); 
+        player.gameObject.SetActive(false);
+
+        SpreadsheetMinigameEndGreedEnding();
+
+    }
+    public void SpreadsheetMinigameEndGreedEnding()
+    {
+        GameManager.Instance.AdvanceGreedDialogue();
+        StopCoroutine(RunLevelsGreedEnding());
+        minigameSelect.SetActive(false);
         canvasUI.SetActive(false);
         bgm.Stop();
     }

@@ -11,12 +11,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameManagerTest.unity
     guid: 3eeff2f208214aa409fabd08d8e38341
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Wakeup.unity
     guid: 82048cb498085c44e8505213295d0f2b
+  - enabled: 1
+    path: Assets/Scenes/Endings/EnvyEnding.unity
+    guid: 997ffb8bf0baae44ba5db0b8aad5a0a0
+  - enabled: 1
+    path: Assets/Scenes/Endings/GreedEnding.unity
+    guid: 02e1c03c7ce5d38409b78b14b9806fc5
+  - enabled: 1
+    path: Assets/Scenes/Endings/IndecisionEnding.unity
+    guid: 7ec20385db0cbf649add400c3a6c50e6
+  - enabled: 1
+    path: Assets/Scenes/Endings/PrideEnding.unity
+    guid: 5cea1a086be62aa4fa89cc3345c0a0e1
+  - enabled: 1
+    path: Assets/Scenes/Endings/SlothEnding.unity
+    guid: 5cafd76521c90994fac858c51081dda3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

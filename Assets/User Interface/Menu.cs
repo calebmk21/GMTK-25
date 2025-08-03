@@ -77,6 +77,14 @@ public class Menu : MonoBehaviour
         panelToggle(panel);
     }
     
+    public void playSpreadsheetMinigameGreed(GameObject panel)
+    {
+        
+        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Spreadsheet);
+        //GameManager.Instance.UpdateGameState(GameManager.GameState.Minigame);
+        panelToggle(panel);
+    }
+    
     public void playEmailMinigame(GameObject panel)
     {
         
