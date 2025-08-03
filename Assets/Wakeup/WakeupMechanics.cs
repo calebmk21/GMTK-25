@@ -11,6 +11,7 @@ public class WakeupMechanics : MonoBehaviour
     [SerializeField] private GameObject Z;
     [SerializeField] private int maxtoSpawn = 25;
 
+    [SerializeField] public GameObject minigameSelect;
     void Awake()
     {
         GameManager.OnMinigameSelect += GameManagerOnOnMinigameSelect;
@@ -39,7 +40,7 @@ public class WakeupMechanics : MonoBehaviour
 
     IEnumerator Testing()
     {
-        float startTime = Time.time;
+        // float startTime = Time.time;
         for(int i = 0; i < maxtoSpawn; ++i)
         {
             InstantiateZ();
@@ -59,10 +60,10 @@ public class WakeupMechanics : MonoBehaviour
             GameManager.Instance.slothPoints += 2;
         }
 
-        float endTime = Time.time;
-        float elapsedTime = endTime - startTime;
+        // float endTime = Time.time;
+        // float elapsedTime = endTime - startTime;
         
-        Debug.Log("Time Elapsed: " + elapsedTime);
+        //Debug.Log("Time Elapsed: " + elapsedTime);
         wakeupMinigameEnd();
     }
 
@@ -82,6 +83,7 @@ public class WakeupMechanics : MonoBehaviour
         }
         
         GameManager.Instance.UpdateGameState(GameManager.GameState.Workday);
+        minigameSelect.SetActive(true);
     }
     
     void InstantiateZ()

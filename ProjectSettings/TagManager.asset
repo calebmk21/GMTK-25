@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Start
+  - End
   - ClickableZ
   - CardClickable
   layers:
@@ -13,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Walls
+  - Floor
   - 
   - 
   - 
@@ -42,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2704893341
+    locked: 0
+  - name: Player
+    uniqueID: 345470621
     locked: 0
   m_RenderingLayers:
   - Default

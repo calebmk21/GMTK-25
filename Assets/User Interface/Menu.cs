@@ -8,11 +8,15 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
+    public static bool isPaused = false;
+    
     [SerializeField] private GameObject systemSettings;
     [SerializeField] private GameObject mainMenuButtons;
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject pauseMenuPanel;
 
+    
+    
     public void quitGame()
     {
         Application.Quit();
@@ -26,7 +30,8 @@ public class Menu : MonoBehaviour
 
         // Maybe need to include other stuff to be found in the GameManager later 
         // but also maybe this suffices 
-
+        
+        isPaused = true;
         Debug.Log("Pause");
     }
     
@@ -35,6 +40,7 @@ public class Menu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         
+        isPaused = false;
         Debug.Log("Unpause");
     }
 
@@ -71,6 +77,14 @@ public class Menu : MonoBehaviour
         panelToggle(panel);
     }
     
+    public void playEmailMinigame(GameObject panel)
+    {
+        
+        GameManager.Instance.MinigameSelection(GameManager.MinigameState.Email);
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Minigame);
+        panelToggle(panel);
+    }
+    
     
     // Debug Functions
     public void SkipToMorning()
@@ -86,6 +100,11 @@ public class Menu : MonoBehaviour
     public void SkipToEnding()
     {
         GameManager.Instance.UpdateGameState(GameManager.GameState.Ending);
+    }
+
+    public void SkipDay()
+    {
+        GameManager.Instance.dayNumber++;
     }
 
     public void GameManagerSummary()
