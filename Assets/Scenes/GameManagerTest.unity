@@ -2156,9 +2156,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1666853115}
+  - {fileID: 387311055}
   - {fileID: 874357056}
   - {fileID: 1566635877}
-  - {fileID: 387311055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668703741
@@ -2821,6 +2821,10 @@ PrefabInstance:
     - target: {fileID: 7531829371575845545, guid: 92350275506a783469b7886e97d5b495, type: 3}
       propertyPath: m_TagString
       value: CardClickable
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009709235957386066, guid: 92350275506a783469b7886e97d5b495, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
